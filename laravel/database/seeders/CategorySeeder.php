@@ -1,5 +1,8 @@
 <?php
 namespace Database\Seeders;
+
+use App\Models\Category;
+
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,16 +15,16 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        User::create([
+        Category::create([
             'warehouse_id'=>1,
             'name' => 'جبس',
-             'product_count'=>2
+
         ]);
 
-        User::create([
+        Category::create([
             'warehouse_id'=>2,
             'name' => 'ملابس',
-             'product_count'=>3
+
         ]);
 
         }

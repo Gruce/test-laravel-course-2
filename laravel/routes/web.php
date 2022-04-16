@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Home;
+use App\Http\Livewire\Category\Show as ShowCategory;
+use App\Http\Livewire\Product\Show as ShowProduct;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,17 +15,11 @@ use App\Http\Livewire\Home;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', Home::class)->name('home');
+
+Route::middleware(['auth:sanctum',])->group(function () {
+    Route::get('/', Home::class)->name('home');
+    Route::get('/categories',ShowCategory::class)->name('categories');
+    Route::get('/products', ShowProduct::class)->name('products');
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
-//Route::get('/home', Home::class)->name('home');
