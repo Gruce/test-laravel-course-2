@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('warehouse_id')->nullable()->constrained('warehouses')->onDelete('cascade');
             $table->string('name');
-            $table->integer('product_count')->default(0);
             $table->timestamps();
         });
     }
