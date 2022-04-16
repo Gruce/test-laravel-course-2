@@ -4,10 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use  App\Models\Warehouse;
-use  App\Models\Category;
 
-class Product extends Model
+class Category extends Model
 {
     use HasFactory;
 
@@ -16,8 +14,8 @@ class Product extends Model
         return $this->belongsTo(Warehouse::class);
     }
 
-    public function category()
+    public function products()
     {
-        return $this->belongsTo(Category::class);
+        return $this->hasMany(Product::class);
     }
 }
